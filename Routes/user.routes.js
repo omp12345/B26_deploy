@@ -6,7 +6,8 @@ const { userModule } = require("../Module/user.moduke")
 userRoutes.post("/register",(req,res)=>{
     const {name,email,pass}=req.body
     const user=userModule.findOne({email})
-    if(user){
+    if(user.email==email){
+       
        res.json({msg:"user already registerd"}) 
     }else{
         try {
